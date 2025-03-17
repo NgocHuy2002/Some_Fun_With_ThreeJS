@@ -6,21 +6,22 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Html, useProgress } from '@react-three/drei'
 import { Suspense } from "react";
+import * as THREE from 'three';
 
-const Model = () => {
-  const gltf = useLoader(GLTFLoader, "./scifi_girl_v.01/scene.gltf");
+// const Model = () => {
+//   const gltf = useLoader(GLTFLoader, "./scifi_girl_v.01/scene.gltf");
+//   return (
+//     <>
+//       <primitive object={gltf.scene} scale={5} />
+//     </>
+//   );
+// };
+
+const Car = () => {
+  const gltf = useLoader(GLTFLoader, "./free_porsche_911_carrera_4s/scene.gltf");
   return (
     <>
-      <primitive object={gltf.scene} scale={5} />
-    </>
-  );
-};
-
-const Tree = () => {
-  const gltf = useLoader(GLTFLoader, "./voxel_tutorial_-_scene_2/scene.gltf");
-  return (
-    <>
-      <primitive object={gltf.scene} scale={0.4} />
+      <primitive object={gltf.scene} scale={1} />
     </>
   );
 };
@@ -33,9 +34,9 @@ export default function App() {
     <div className="App">
       <Canvas>
         <Suspense fallback={<Loader />}>
-          <Tree />
+          <Car />
           <OrbitControls />
-          <Environment preset="sunset" background />
+          <Environment preset="sunset" />
         </Suspense>
       </Canvas>
     </div>
